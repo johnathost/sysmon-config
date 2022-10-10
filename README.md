@@ -18,7 +18,7 @@ Note: Exact syntax and filtering choices in the configuration are highly deliber
 
 ## Use ##
 
-## Download Sysmon ##
+### Download Sysmon ###
 
 Navigate to the following Sysinternals article: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 
