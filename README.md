@@ -17,6 +17,11 @@ Note: Exact syntax and filtering choices in the configuration are highly deliber
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[See other forks of this configuration](https://github.com/SwiftOnSecurity/sysmon-config/network)**
 
 ## Use ##
+
+## Download Sysmon ##
+
+Navigate to the following Sysinternals article: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+
 ### Install ###
 Run with administrator rights
 ~~~~
