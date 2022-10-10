@@ -20,7 +20,7 @@ Note: Exact syntax and filtering choices in the configuration are highly deliber
 
 ### Download Sysmon ###
 
-Navigate to the following Sysinternals article: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+The executable can be found here: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 
 ### Install ###
 
