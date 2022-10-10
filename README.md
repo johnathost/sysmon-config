@@ -23,21 +23,33 @@ Note: Exact syntax and filtering choices in the configuration are highly deliber
 Navigate to the following Sysinternals article: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 
 ### Install ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -accepteula -i sysmonconfig-export.xml
+.\Sysmon64 -accepteula -i sysmonconfig-export.xml
 ~~~~
 
 ### Update existing configuration ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -c sysmonconfig-export.xml
+.\Sysmon64 -c sysmonconfig-export.xml
 ~~~~
 
 ### Uninstall ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -u
+.\Sysmon64 -u
 ~~~~
 
 ## Required actions ##
