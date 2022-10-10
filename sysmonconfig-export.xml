@@ -377,6 +377,8 @@
 			<!--Section: Loopback Addresses-->
 			<DestinationIp condition="is">127.0.0.1</DestinationIp> <!--Credit @ITProPaul-->
 			<DestinationIp condition="begin with">fe80:0:0:0</DestinationIp> <!--Credit @ITProPaul-->
+			<!--Section: Spotify-->
+			<Image condition="end with">AppData\Roaming\Spotify\Spotify.exe</Image> <!-- Spotify -->
 		</NetworkConnect>
 	</RuleGroup>
 
@@ -398,6 +400,8 @@
 
 	<RuleGroup name="" groupRelation="or">
 		<ProcessTerminate onmatch="exclude">
+			<!--SECTION: Microsoft-->
+			<Image condition="end with">AppData\Local\Microsoft\Teams\current\Teams.exe</Image> <!--Microsoft: Teams-->
 		</ProcessTerminate>
 	</RuleGroup>
 
