@@ -10,7 +10,7 @@
   Fork license:	<N/A>
 
   REQUIRED: Sysmon version 13 or higher (due to changes in syntax and bug-fixes)
-	https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+	https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 
   NOTE: To collect Sysmon logs centrally for free, see https://aka.ms/WEF | Command to allow log access to the Network Service:
 	wevtutil.exe sl Microsoft-Windows-Sysmon/Operational /ca:O:BAG:SYD:(A;;0xf0005;;;SY)(A;;0x5;;;BA)(A;;0x1;;;S-1-5-32-573)(A;;0x1;;;NS)
@@ -31,7 +31,7 @@
 
   NOTE: This configuration is designed for PER-MACHINE installs of Chrome and OneDrive. That moves their binaries out of user-controlled folders.
 	Otherwise, attackers could imitate these common applications, and bypass your logging. Below are silent upgrades you can do, no user impact:
-	- https://docs.microsoft.com/en-us/onedrive/per-machine-installation
+	- https://learn.microsoft.com/en-us/sharepoint/per-machine-installation
 	- https://cloud.google.com/chrome-enterprise/browser/download/
 	- As of 2021-02-16 there is no machine-level version of Microsoft Teams. The one provided copies itself to the user profile.
 
@@ -131,7 +131,7 @@
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k LocalService -p -s BthAvctpSvc</CommandLine>
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localService -s nsi</CommandLine>
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localService -s w32Time</CommandLine>
-      <CommandLine condition="is">C:\Windows\system32\svchost.exe -k localServiceAndNoImpersonation</CommandLine> <!--Windows: Network services-->
+			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localServiceAndNoImpersonation</CommandLine> <!--Windows: Network services-->
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localServiceAndNoImpersonation -p</CommandLine> <!--Windows: Network services-->
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localServiceNetworkRestricted -s Dhcp</CommandLine> <!--Windows: Network services-->
 			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k localServiceNetworkRestricted -s EventLog</CommandLine>
@@ -254,6 +254,7 @@
 			<Image condition="is">msiexec.exe</Image> <!--Ignore setups-->
 			<Image condition="is">TrustedInstaller.exe</Image> <!--Ignore setups-->
 			<TargetFilename condition="contains">\NVIDIA\NvBackend\ApplicationOntology\</TargetFilename> <!--NVIDIA GeForce Experience Application Ontology, 1000's of events in user profile-->
+			<Image condition="end with">AppData\Roaming\Spotify\Spotify.exe</Image> <!--Spotify-->
 		</FileCreateTime>
 	</RuleGroup>
 
@@ -377,6 +378,8 @@
 			<!--Section: Loopback Addresses-->
 			<DestinationIp condition="is">127.0.0.1</DestinationIp> <!--Credit @ITProPaul-->
 			<DestinationIp condition="begin with">fe80:0:0:0</DestinationIp> <!--Credit @ITProPaul-->
+			<!--Section: Spotify-->
+			<Image condition="end with">AppData\Roaming\Spotify\Spotify.exe</Image> <!--Spotify-->
 		</NetworkConnect>
 	</RuleGroup>
 
@@ -398,6 +401,8 @@
 
 	<RuleGroup name="" groupRelation="or">
 		<ProcessTerminate onmatch="exclude">
+			<!--SECTION: Microsoft-->
+			<Image condition="end with">AppData\Local\Microsoft\Teams\current\Teams.exe</Image> <!--Microsoft: Teams-->
 		</ProcessTerminate>
 	</RuleGroup>
 

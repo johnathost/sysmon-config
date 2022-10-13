@@ -4,7 +4,7 @@ This is a Microsoft Sysinternals Sysmon configuration file template with default
 
 The file should function as a great starting point for system change monitoring in a self-contained and accessible package. This configuration and results should give you a good idea of what's possible for Sysmon. Note that this does not track things like authentication and other Windows events that are also vital for incident investigation.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[sysmonconfig-export.xml](https://github.com/SwiftOnSecurity/sysmon-config/blob/master/sysmonconfig-export.xml)**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[sysmonconfig-export.xml](https://github.com/johnathost/sysmon-config/blob/master/sysmonconfig-export.xml)**
 
 Because virtually every line is commented and sections are marked with explanations, it should also function as a tutorial for Sysmon and a guide to critical monitoring areas in Windows systems.
 
@@ -17,28 +17,45 @@ Note: Exact syntax and filtering choices in the configuration are highly deliber
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[See other forks of this configuration](https://github.com/SwiftOnSecurity/sysmon-config/network)**
 
 ## Use ##
+
+### Download Sysmon ###
+
+The executable can be found here: https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+
 ### Install ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -accepteula -i sysmonconfig-export.xml
+.\Sysmon64 -accepteula -i sysmonconfig-export.xml
 ~~~~
 
 ### Update existing configuration ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -c sysmonconfig-export.xml
+.\Sysmon64 -c sysmonconfig-export.xml
 ~~~~
 
 ### Uninstall ###
-Run with administrator rights
+
+- Run a PowerShell with elevated privliges.
+- Navigate to the sysmon directory.
+- Excecute the command below.
+
 ~~~~
-sysmon.exe -u
+.\Sysmon64 -u
 ~~~~
 
 ## Required actions ##
 
 ### Prerequisites ###
-Highly recommend using [Notepad++](https://notepad-plus-plus.org/) to edit this configuration. It understands UNIX newline format and does XML syntax highlighting, which makes this very understandable. I do not recommend using the built-in Notepad.exe.
+Highly recommend using [Visual Studio Code](https://code.visualstudio.com/) to edit this configuration. It understands UNIX newline format and does XML syntax highlighting, which makes this very understandable. I do not recommend using the built-in Notepad.exe.
 
 ### Customization ###
 You will need to install and observe the results of the configuration in your own environment before deploying it widely. For example, you will need to exclude actions of your antivirus, which will otherwise likely fill up your logs with useless information.
